@@ -58,6 +58,32 @@ type: home
 </a>
 </p>
 
+<ul>
+
+{% for packet in site.packetsCollection %}
+  <li>
+
+    <h6>title: {{packet.title}}</h6>
+    <h6>slug: {{packet.title}}</h6>
+    <h6>path: {{packet.path}}</h6>
+    <h6>relative_path: {{packet.relative_path}}</h6>
+    <h6>url: {{packet.url}}</h6>
+    <h6>
+      <a
+        target="_blank"
+        href="{{site.baseurl}}/{{ packet.url }}">
+        {{site.baseurl}}{{ packet.url }}
+      </a>
+    </h6>
+    <pre class="pre-scrollable">
+      Content:
+      {{packet.content}}
+    </pre>
+  </li>
+{% endfor %}
+</ul>
+
+<!--
 {% for collection in site.collections %}
   <li>
     <h6>Collection name: {{collection.label}}</h6>
@@ -92,21 +118,9 @@ type: home
   </li>
 {% endfor %}
 </ul>
+-->
 
 
-<hr>
-
-
-<h2>Packets! We don't need no stinkin' packets.</h2>
-{% for packet in site.packetsCollection %}
-  <h6>
-    <a
-      target="_blank"
-      href="{{site.baseurl}}{{ packet.url }}">
-      {{site.baseurl}}{{ packet.url }}
-    </a>
-  </h6>
-{% endfor %}
 
 <hr>
 
