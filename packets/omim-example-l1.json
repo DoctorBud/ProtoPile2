@@ -1,0 +1,71 @@
+{
+    "ontologies": [
+        {
+            "id": "hp",
+            "version": "2016-02-01"
+        }
+    ],
+    "phenotype_profile": [
+        {
+            "evidence": {
+                "type": "TAS",
+                "source": {
+                    "id": "PMID:23455423",
+                    "title": "Mutations in prion-like domains in hnRNPA2B1 and hnRNPA1 cause multisystem proteinopathy and ALS"
+                }
+            },
+            "created": "!!date 2016 1 14",
+            "phenotype": {
+                "type": {
+                    "label": "Muscular dystrophy",
+                    "id": "HP:0003560"
+                },
+                "onset": {
+                    "type": {
+                        "label": "Late onset",
+                        "id": "HP:0003584"
+                    }
+                },
+                "description": "blah blah"
+            },
+            "entity": "OMIM:615426",
+            "contributors": [
+                {
+                    "id": "ORCID:nnnn-nnnn-nnnn"
+                }
+            ]
+        },
+        {
+            "phenotype": {
+                "type": {
+                    "label": "Amyotrophic lateral sclerosis",
+                    "id": "HP:0007354"
+                }
+            },
+            "entity": "OMIM:615426",
+            "evidence": {
+                "type": "IEA",
+                "source": {
+                    "id": "OMIM:615426"
+                }
+            },
+            "created": "!!date 2016 1 14",
+            "comment": "Disease name contained:amyotrophic lateral sclerosis 20",
+            "contributors": [
+                {
+                    "id": "ORCID:nnnn-nnnn-nnnn"
+                }
+            ]
+        }
+    ],
+    "schema": "phenopacket-level-1",
+    "entities": [
+        {
+            "type": "disease",
+            "id": "OMIM:615426",
+            "label": "amyotrophic lateral sclerosis type 20"
+        }
+    ],
+    "comment": "This is an example phenopacket containing one disease and two associations",
+    "@context": "http://phenopacket.github.io/context/context.jsonld"
+}

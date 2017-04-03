@@ -1,0 +1,145 @@
+---
+layout: default
+type: home
+---
+
+
+<h2>Using the Jekyll Data Files Feature</h2>
+<p>
+  Jekyll allows data files such as CSV, JSON, YAML to be loaded and made available
+  to the rendering engine, where the loaded can be rendered or even computed upon.
+
+  The downside to this feature is that incorrectly formatted data files will cause
+  the build to break; so that a single error can prevent any updates from being seen.
+
+<a
+  href="https://jekyllrb.com/docs/datafiles/"
+  target="_blank">
+  Jekyll documentation about Data Files
+</a>
+</p>
+
+<ul>
+{% for packet_hash in site.data.packets %}
+{% assign packet_name = packet_hash[0] %}
+{% assign packet = packet_hash[1] %}
+  <li>
+    <h6>name: {{ packet_name }}</h6>
+    <h6>schema: {{ packet.schema }}</h6>
+    <h6>comment: {{ packet.comment }}</h6>
+    <h6>ontologies: {{ packet.ontologies }}</h6>
+    <h6>phenotype_profile: {{ packet.phenotype_profile }}</h6>
+    <h6>entities: {{ packet.entities }}</h6>
+    <h6>persons: {{ packet.persons }}</h6>
+    <h6>phenotypeAssociations: {{ packet.phenotypeAssociations }}</h6>
+    <h6>evidence: {{ packet.evidence }}</h6>
+    <h6>entities: {{ packet.entities }}</h6>
+    <pre class="pre-scrollable">{{ packet }}</pre>
+  </li>
+{% endfor %}
+</ul>
+
+
+<hr>
+
+<h2>Using the Jekyll Collections Feature</h2>
+
+<p>
+  Jekyll allows data files such as CSV, JSON, YAML to be loaded and made available
+  to the rendering engine, where the loaded can be rendered or even computed upon.
+
+  The downside to this feature is that incorrectly formatted data files will cause
+  the build to break; so that a single error can prevent any updates from being seen.
+
+<a
+  href="https://jekyllrb.com/docs/collections/"
+  target="_blank">
+  Jekyll documentation about Collections
+</a>
+</p>
+
+{% for collection in site.collections %}
+  <li>
+    <h6>Collection name: {{collection.label}}</h6>
+    <h6>Relative path to the collection's source directory: {{collection.relative_directory }}</h6>
+    <h6>Full path to the collection's directory: {{collection.directory}}</h6>
+    <h6>Output collection files as individual files?: {{collection.output}}</h6>
+
+    <hr>
+
+    <ul>
+    {% for doc in collection.docs %}
+      <li>
+        <h6>title: {{doc.title}}</h6>
+        <h6>slug: {{doc.title}}</h6>
+        <h6>path: {{doc.path}}</h6>
+        <h6>relative_path: {{doc.relative_path}}</h6>
+        <h6>url: {{doc.url}}</h6>
+        <h6>
+          <a
+            target="_blank"
+            href="{{site.baseurl}}/{{ doc.url }}">
+            {{site.baseurl}}{{ doc.url }}
+          </a>
+        </h6>
+        <pre class="pre-scrollable">
+          Content:
+          {{doc.content}}
+        </pre>
+      </li>
+    {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>
+
+
+<hr>
+
+
+<h2>Packets! We don't need no stinkin' packets.</h2>
+{% for packet in site.packetsCollection.docs %}
+  <h6>
+    <a
+      target="_blank"
+      href="{{site.baseurl}}{{ packet.path }}">
+      {{ packet.path }}
+    </a>
+  </h6>
+{% endfor %}
+
+<hr>
+
+<h2>Using the Jekyll static_files feature</h2>
+
+<p>
+  This is currently the most reliable way to deploy JSON/YAML content via Jekyll, because it ensures that the files are simply copied uninterpreted to their output directory. This avoids issues with Jekyll failing to interpret JSON or YAML files that have errors.
+
+<a
+  href="https://jekyllrb.com/docs/static-files/"
+  target="_blank">
+  Jekyll documentation about Data Files
+</a>
+</p>
+
+
+<ul>
+{% for packet in site.static_files %}
+  {% if packet.path contains "packets/" %}
+    {% if packet.extname == '.yaml' or packet.extname == '.json' %}
+    	<li>
+    		<a
+          target="_blank"
+          href="{{site.baseurl}}{{ packet.path }}">
+    			{{ packet.path }}
+    		</a>
+    	</li>
+    {% else %}
+      <li>
+        {{ packet.path }} / {{ packet.extname }}
+      </li>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</ul>
+

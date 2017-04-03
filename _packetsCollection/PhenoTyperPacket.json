@@ -1,0 +1,97 @@
+---
+---
+
+[
+  {
+    "persons": [
+      {
+        "id": "patient:1"
+      }
+    ],
+    "phenotypeAssociations": [
+      {
+        "entity": "patient:1",
+        "phenotype": {
+          "types": [
+            {
+              "id": "HP:0002910",
+              "label": "Elevated hepatic transaminases"
+            }
+          ]
+        },
+        "evidence": []
+      },
+      {
+        "entity": "patient:1",
+        "phenotype": {
+          "types": [
+            {
+              "id": "HP:0002013",
+              "label": "Vomiting"
+            }
+          ]
+        },
+        "evidence": []
+      },
+      {
+        "entity": "patient:1",
+        "phenotype": {
+          "types": [
+            {
+              "id": "HP:0002829",
+              "label": "Arthralgia"
+            }
+          ]
+        },
+        "evidence": []
+      }
+    ],
+    "@id": "PXF:000000"
+  },
+  {
+    "persons": [
+      {
+        "id": "OtherPatient"
+      }
+    ],
+    "phenotypeAssociations": [
+      {
+        "entity": "OtherPatient",
+        "phenotype": {
+          "types": [
+            {
+              "id": "HP:0002027",
+              "label": "Abdominal pain"
+            }
+          ]
+        },
+        "evidence": []
+      },
+      {
+        "entity": "OtherPatient",
+        "phenotype": {
+          "types": [
+            {
+              "id": "HP:0002315",
+              "label": "Headache"
+            }
+          ]
+        },
+        "evidence": []
+      },
+      {
+        "entity": "OtherPatient",
+        "phenotype": {
+          "types": [
+            {
+              "id": "HP:0002018",
+              "label": "Nausea"
+            }
+          ]
+        },
+        "evidence": []
+      }
+    ],
+    "@id": "PXF:000001"
+  }
+]

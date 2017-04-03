@@ -1,0 +1,26 @@
+theme: jekyll-theme-cayman
+## The collections feature will not work without front-matter on the packets, and that
+## is an unnecessary requirement for packet submitters, so we won't use collections and will
+## instead use the static_files feature.
+#
+collections:
+  packetsCollection:
+    output: true
+    # output_ext: .html
+    permalink: /packetsCollection/:title:output_ext
+defaults:
+  - scope:
+      path: "packetsCollection"
+    values:
+      layout: "default_packets"
+      packet: true
+  - scope:
+      path: "packets"
+    values:
+      layout: "default_packets"
+      packet: true
+sass:
+  style: compressed
+  sass_dir: _sass
+# gems:
+#   - safe_yaml
